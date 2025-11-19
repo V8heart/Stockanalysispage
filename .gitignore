@@ -1,0 +1,16 @@
+# Next.js production build output
+.next/
+
+# Node.js modules
+node_modules/
+
+# Environment variables
+.env.local
+
+# macOS system files
+.DS_Store
+
+# Log files
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
