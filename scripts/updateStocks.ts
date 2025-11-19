@@ -2,8 +2,7 @@
 import 'dotenv/config';
 import dotenv from 'dotenv';
 dotenv.config({ path: '.env.local' });
-import { fetchAndUpdateStocks } from "./../lib/fetchAndUpdateStocks";
-import { createClient as createSupabaseServerClient } from "./../lib/supabaseServerClient"; // 새로 생성된 서버 클라이언트 임포트
+import { fetchAndUpdateStocks } from "../lib/fetchAndUpdateStocks";
 
 const DEFAULT_STOCKS = [
   "AAPL","MSFT","GOOGL","AMZN","TSLA",
@@ -15,7 +14,8 @@ const DEFAULT_STOCKS = [
   console.log("Supabase Anon Key:", process.env.SUPABASE_ANON_KEY ? 'Loaded' : 'Not Loaded');
   console.log("🚀 Stock data update started...");
 
-  // fetchAndUpdateStocks 함수에 서버 클라이언트 전달
-  await fetchAndUpdateStocks(DEFAULT_STOCKS, createSupabaseServerClient());
+  // ✅ 올바른 호출 (인자 1개)
+  await fetchAndUpdateStocks(DEFAULT_STOCKS);
+
   console.log("✅ Stock data update finished.");
 })();
