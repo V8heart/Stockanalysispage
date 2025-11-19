@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Line } from "react-chartjs-2";
+import dynamic from "next/dynamic";
 import {
   Chart as ChartJS,
   LineElement,
@@ -14,6 +14,11 @@ import {
 import { createClient } from "@/lib/supabaseClient";
 
 ChartJS.register(LineElement, PointElement, LinearScale, CategoryScale, Tooltip, Legend);
+
+// dynamic import로 변경 + SSR 비활성화
+const Line = dynamic(() => import("react-chartjs-2").then((mod) => mod.Line), {
+  ssr: false,
+});
 
 const DEFAULT_STOCKS = [
   "AAPL",
